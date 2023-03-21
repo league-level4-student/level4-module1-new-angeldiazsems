@@ -38,7 +38,7 @@ public interface InterfaceDemo {
 
 interface DemoInterface {
 
-    public String faceDemo();
+    public String faceDemo(); //METHOD
 }
 
 /*

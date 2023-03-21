@@ -44,6 +44,7 @@ public class TextFunkifierTest {
 
     @Test
     public void testCustomString() {
-
+    	testClassLol test = new testClassLol("EEEEEE");
+    	assertEquals("eeeeee", test.funkifyText());
     }
 }
