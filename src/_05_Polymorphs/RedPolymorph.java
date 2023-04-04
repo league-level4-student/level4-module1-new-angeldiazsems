@@ -29,7 +29,7 @@ public class RedPolymorph extends Polymorph {
 	@Override
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
-		g.setColor(Color.RED);
+		g.setColor(Color.red);
 		g.drawRect(x, y, width, height);
 	}
 

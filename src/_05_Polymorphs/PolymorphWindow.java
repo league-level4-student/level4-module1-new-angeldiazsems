@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -29,11 +31,11 @@ import javax.swing.Timer;
  * 
  * 7. Create a new sub-class of the Polymorph class called MovingMorph.
  * 
- * 8. Add code to its update method to make MovingMorph objects move around
- * the screen.
+ * 8. Addeen.
  * 
  * 9. Create a MovingMorph object in your PolymorphWindow class and test it
- * by calling its draw and update methods.
+ * by calling its dra code to its update method to make MovingMorph objects move around
+ * the scrw and update methods.
  * 
  * 10. Now, delete all references to Polymorphs subclasses inside your
  * PolymorphWindow class.
@@ -55,12 +57,12 @@ import javax.swing.Timer;
 
 public class PolymorphWindow extends JPanel implements ActionListener {
 
-    public static final int WIDTH = 900;
-    public static final int HEIGHT = 600;
+    public static final int WIDTH = 500;
+    public static final int HEIGHT = 500;
 
     private JFrame window;
     private Timer timer;
-
+    ArrayList<Polymorph> poly;
 
     public static void main(String[] args) {
         new PolymorphWindow().buildWindow();
@@ -69,28 +71,22 @@ public class PolymorphWindow extends JPanel implements ActionListener {
     public void buildWindow() {
         window = new JFrame("IT'S MORPHIN' TIME!");
         window.add(this);
-        window.getContentPane().setPreferredSize(new Dimension(500, 500));
+        window.getContentPane().setPreferredSize(new Dimension(WIDTH, HEIGHT));
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.pack();
         window.setVisible(true);
-		MovingMorph m = new MovingMorph(10,10,10,10);
-
         
         
-        ArrayList<Polymorph> poly = new ArrayList<Polymorph>();
         
-        poly.add(new BluePolymorph(50,50,50,50));
-        poly.add(new RedPolymorph(50,50,50,50));
+        poly = new ArrayList<Polymorph>();
+        
+        poly.add(new BluePolymorph(70,80,50,50));
+        poly.add(new RedPolymorph(120,100,50,50));
         poly.add(new MovingMorph(50,50,50,50));
-        
-        
-        
-        for(int i = 0; i < poly.size(); i++) {
-        	poly.get(i).draw(getGraphics());
-        	poly.get(i).update();
-        }
-        
-        
+        poly.add(new MouseMorph(50,350,50,50));
+        poly.add(new ClickPolymorph(80,40,50,50));
+        window.addMouseMotionListener((MouseMotionListener) poly.get(3));
+        window.addMouseListener((MouseListener) poly.get(4));
         
         
         timer = new Timer(1000 / 30, this);
@@ -104,6 +100,12 @@ public class PolymorphWindow extends JPanel implements ActionListener {
 
         // draw polymorph
 
+        for(int i = 0; i < poly.size(); i++) {
+        	poly.get(i).draw(g);
+        	poly.get(i).update();
+        }
+        
+        
     }
 
     @Override

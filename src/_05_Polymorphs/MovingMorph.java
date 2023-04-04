@@ -1,5 +1,6 @@
 package _05_Polymorphs;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class MovingMorph extends Polymorph{
@@ -8,9 +9,6 @@ public class MovingMorph extends Polymorph{
 	private int y;
 	private int width;
 	private int height;
-
-	
-	private int check = 0;
 	
 	public MovingMorph(int x, int y, int width, int height) {
 		super(x, y, width, height);
@@ -23,19 +21,19 @@ public class MovingMorph extends Polymorph{
 		
 	}
 
-	int speedX = 10;
-	int speedY = 10;
+	int speedX = 5;
+	int speedY = 5;
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
 		x = speedX+x;
 		y = speedY+y;
 		
-		if(x >= PolymorphWindow.WIDTH && x <= 0) {
+		if(x >= PolymorphWindow.WIDTH || x <= 0) {
 		speedX = -speedX;	
 		}
 		
-		if(y >= PolymorphWindow.HEIGHT && y <= 0) { //zero = bottom
+		if(y >= PolymorphWindow.HEIGHT || y <= 0) { //zero = bottom
 			speedY = -speedY;
 		}
 
@@ -44,7 +42,8 @@ public class MovingMorph extends Polymorph{
 	@Override
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
-		
+		g.setColor(Color.black);
+		g.fillRect(x, y, width, height);
 	}
 
 }
