@@ -2,39 +2,33 @@ package _06_Hospital;
 
 import java.util.ArrayList;
 
-public class Surgeon extends Doctor{
+public class Surgeon extends Doctor {
 
-	
-	
-	
-	public void performSurgery() {
-		
+	public boolean performsSurgery() {
+
+		return true;
 	}
-	
-	
-	
+
 	@Override
 	public void doMedicine() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public void holdListOfPatients() {
+	public void assignPatient(Patient p) throws Exception {
 		// TODO Auto-generated method stub
-		
+		if (getPatients().size() < 4) {
+			getPatients().add(p);
+		}
+		else {
+			throw new DoctorFullException();
+		}
 	}
 
-	@Override
-	public void assignPatient() {
+	public boolean makesHouseCalls() {
 		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public ArrayList<String> getPatients() {
-		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
 
 }

@@ -2,11 +2,16 @@ package _06_Hospital;
 
 public class Patient {
 
-	void feelCaredFor() {
-		
+	boolean checked = false;
+	
+	public boolean feelsCaredFor() {
+		if(checked == false) {
+			return false;
+		}
+		return true;
 	}
 	
-	void checkPulse() {
-		
+	public void checkPulse() {
+		checked = true;
 	}
 }

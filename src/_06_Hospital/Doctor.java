@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 public abstract class Doctor {
 
-	ArrayList<Patient> patients = new ArrayList<Patient>();
-	
+	private ArrayList<Patient> patients = new ArrayList<Patient>();
 	
 	public abstract void doMedicine();
+		
+	public abstract void assignPatient(Patient p) throws Exception;
 	
-	public abstract void holdListOfPatients();
-	
-	public abstract void assignPatient();
-	
-	public abstract ArrayList<String> getPatients();
+	public ArrayList<Patient> getPatients(){
+		return patients;
+		
+	}
 }
