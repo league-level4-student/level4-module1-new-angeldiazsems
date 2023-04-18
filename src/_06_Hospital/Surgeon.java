@@ -18,7 +18,7 @@ public class Surgeon extends Doctor {
 	@Override
 	public void assignPatient(Patient p) throws Exception {
 		// TODO Auto-generated method stub
-		if (getPatients().size() < 4) {
+		if (getPatients().size() < 3) {
 			getPatients().add(p);
 		}
 		else {
